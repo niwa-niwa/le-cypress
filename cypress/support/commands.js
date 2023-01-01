@@ -1,3 +1,15 @@
+Cypress.Commands.add("seedAndVisit",(seedData="fixture:todos")=>{
+  cy.server();
+
+  // cy.route("GET", "/api/todos", todos);
+
+  // NOTE import todos JSON array from fixtures/todos.json
+  cy.route("GET", "/api/todos", seedData);
+
+  cy.visit("/");
+})
+
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
